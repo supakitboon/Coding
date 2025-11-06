@@ -234,3 +234,101 @@ function caseInSwitch(val){
     }
     return Math.round(Math.pow(Math.sqrt(a)+Math.sqrt(b),2));
  }
+
+ //Build Object  // same as Array but use property to access value 
+ var ourDog = {
+    "name" : "Camper",
+    "legs" : 4,
+    "tails" : 1,
+    "friends" : ["everything"]
+ };
+
+ // Dot Notation // Access property 
+ var nameValue = ourDog.name;
+ var legValue = ourDog.legs;
+//  console.log(nameValue);
+//  console.log(legValue);
+
+//Bracket Notation 
+var testObj ={ 
+    "an entree":"hamburger",
+    "my side": "veggie",
+    "the drink" : "water"
+};
+var entreeValue = testObj['an entree'];
+var drinkValue = testObj['the drink'];
+
+// Accessing Object property via variable 
+var testObj ={
+    16 : "Montana"
+};
+var playerNumeber = 16;
+var player = testObj[playerNumeber]
+// console.log(player);
+
+// Updatimg Object properties
+ var ourDog = {
+    "name" : "Camper",
+    "legs" : 4,
+    "tails" : 1,
+    "friends" : ["everything"]
+ };
+ourDog.name = "Happy Camper";
+// console.log(ourDog.name);
+
+// Adding new property 
+ourDog.bark = "bah bah";
+// console.log(ourDog.bark);
+
+//Delete property
+delete ourDog.bark;
+
+
+//Using Object for lookups
+var lookup  = {
+    "alpha" : "Adams",
+    "bravo" : "Boston"
+}
+
+
+// Testing Obj property 
+
+var myObj = {
+    gift: "pony",
+    pet : "kitten"
+}
+
+function checkObj(checkProp){
+    if (myObj.hasOwnProperty(checkProp)){
+        return myObj[checkProp];
+    } else {
+        return " Not found"
+    }
+}
+// console.log(checkObj('gift')); 
+
+// Manipulating Complex  Objects 
+// Array of Objects 
+var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_year": 1973,
+        "format":[
+            "CD",
+            "8T",
+            "LP"
+        ],
+        "gold":true
+    },
+    {
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_year": 2003,
+        "format":[
+            "Youtube video",
+            "8T",
+            "LP"
+        ]
+    }
+]
