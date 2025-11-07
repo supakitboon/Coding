@@ -332,3 +332,157 @@ var myMusic = [
         ]
     }
 ]
+
+
+//Nested Array
+var myPlants =[
+    {
+        type: "flowers",
+        list: [
+            "rose",
+            "tulip",
+            "dandelion"
+        
+        ]
+    },
+    {
+        type: "trees",
+        list:[
+            "fir",
+            "pine",
+            "birch"
+        ]
+    }
+];
+
+var secondTree = myPlants[1].list[1];
+// console.log(secondTree);
+
+//While Loop 
+var myArray =[];
+var i =0;
+while(i<5){
+    myArray.push(i);
+    i++;
+}
+// console.log(myArray);
+
+//For Loop 
+var ourArray =[];
+for (var i =1; i<6; i++){
+    ourArray.push(i);
+}
+// console.log(ourArray);
+
+//Odd num with for loop 
+var myArray = [];
+for (var i =1; i<10; i+=2){
+    myArray.push(i);
+}
+// console.log(myArray);
+
+//Nesting for loop
+var product = multiplyAll([[1,2],[3,4],[5,6,7]]);
+function multiplyAll(arr){
+    var product = 1;
+
+    for (var i = 0; i<arr.length;i++){
+        for(var j=0; j< arr[i].length;j++){
+            product *= arr[i][j];
+        }
+    }
+    return product;
+}
+// console.log(product);
+
+// Do while loop  (always run 1 time first and then check the condition)
+var myArray =[];
+var i =10;
+
+do { 
+    myArray.push(i);
+    i++;
+} while (i<5);
+// console.log(i,myArray);
+
+//Generate Random Fraction 
+function randomFraction(){
+    return Math.random();
+}
+
+//Generate Random Whole number 
+var randomNumberBetween0and19 = Math.floor(Math.random()*20);
+// console.log(randomNumberBetween0and19);
+
+//parseInt 
+function convertToInteger(str){
+    return parseInt(str);
+}
+convertToInteger("56");
+
+function convertToInteger(str){
+    return parseInt(str,2)
+}
+convertToInteger("10011");
+
+//tenary operator 
+function checkEqual(a,b){
+    return a ===b ?true : false ;
+    // return a ===b;
+}
+
+
+// Multi ternary operator 
+function checkSign(num){
+    return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+}
+
+
+// var VS let 
+let catName ="Quincy";
+let quote;
+// let catName = "Beau"; //ERROR 
+
+const s = [5,7,2];
+function editInPlace(){
+    s[0] = 2;
+    s[1] = 5;
+    s[2] = 7;
+}
+
+// Prevent Object mutation 
+function freezeObj(){
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+    Object.freeze(MATH_CONSTANTS);
+
+    try { 
+        MATH_CONSTANTS.PI = 99;
+    } catch(ex) {
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+}
+
+// const PI = freezeObj();
+// console.log(PI);
+
+//Arrow Function 
+var magic = function(){
+    return new Date();
+}
+
+var magic = () => {
+    return new Date();
+}
+
+var magic = () => new Date;
+//////////////////////////////////////////////////////
+var myConcat = function(arr1,arr2){
+    return arr1.concat(arr2);
+}
+
+const myConcat = (arr1,arr2) => arr1.concat(arr2);
+//////////////////////////////////////////////////////
+
