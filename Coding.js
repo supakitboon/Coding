@@ -479,10 +479,56 @@ var magic = () => {
 
 var magic = () => new Date;
 //////////////////////////////////////////////////////
+/*
 var myConcat = function(arr1,arr2){
     return arr1.concat(arr2);
 }
+    */
 
 const myConcat = (arr1,arr2) => arr1.concat(arr2);
 //////////////////////////////////////////////////////
 
+//Rest operator with function 
+var sum = (function(){
+    return function sum(x, y ,z){
+        const args = [x, y ,z];
+        return args.reduce((a,b)=> a+b,0);
+    }
+})();
+var sum = (function(){
+    return function sum(...arg){
+        return arg.reduce((a,b)=> a+b,0);
+    }
+})();
+// console.log(sum(1,2,3));
+
+// Spread operator 
+const arr1 =['JAN','FEB','MAR','APR','MAY'];
+/*
+let arr2;
+(function(){
+    arr2 = arr1;
+    arr1[0] = 'potato';
+}) ();
+ */
+//console.log(arr2); // [ 'potato', 'FEB', 'MAR', 'APR', 'MAY' ]
+let arr2;
+(function(){
+    arr2 = [...arr1];
+    arr1[0] = 'potato';
+}) ();
+//console.log(arr2); //[ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
+
+//Destructuring Assignment 
+const AVG_TEMPERATURES = {
+    today : 77.5,
+    tomorrow : 79
+};
+
+function getTempOfTmrw(avgTemperatures){
+    "use strict";
+    const { tomorrow : tempOfTomorrow} = avgTemperatures;
+    return tempOfTomorrow;
+ }
+
+ //console.log(getTempOfTmrw(AVG_TEMPERATURES)); //79
