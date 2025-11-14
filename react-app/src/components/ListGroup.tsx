@@ -7,6 +7,8 @@ function ListGroup() {
         'London',
         'Paris'
     ];
+    if (items.length === 0) 
+        return <p>No item found</p>
     return (
     <> 
         <h1>List</h1>
