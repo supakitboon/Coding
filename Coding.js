@@ -532,3 +532,84 @@ function getTempOfTmrw(avgTemperatures){
  }
 
  //console.log(getTempOfTmrw(AVG_TEMPERATURES)); //79
+
+ const LOCAL_FORECAST = { 
+    tomorrow : { min:73.3 ,max:84.6}
+ };
+
+function getMaxOfTmrw(forecast) { 
+    "use strict";
+    const {tomorrow : {max : maxOfTomorrow}} = forecast;
+    return maxOfTomorrow;
+}
+//console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+//Destructure Assigment Array 
+const [z,x, ,y] =[1,2,3,4,5,6];
+// console.log(z,x,y);
+
+let a = 8, b = 6;
+(() => {
+    "use strict";
+    [a,b] = [b,a];
+})();
+// console.log(a);
+// console.log(b);
+
+//Template literal 
+const person = {
+    name : "Zodiac Hasbro",
+    age : 56
+}
+
+const greeting = `Hello, my name is ${person.name}! I am ${person.age} years old.`;
+// console.log(greeting);
+
+
+// Declarative Function ( object can contain function)
+const bicycle = { 
+    gear: 2,
+    setGear(newGear){
+    "use strict";
+    this.gear = newGear;
+    }
+};
+
+// bicycle.setGear(3);
+// console.log(bicycle.gear);
+
+// Class 
+function makeClass(){
+    class Vegetable{
+        constructor(name){
+            this.name = name;
+        } 
+    }
+    return Vegetable;
+
+}
+
+// const Vegetable = makeClass();
+// const carrot = new Vegetable('carrot');
+// console.log(carrot.name);
+
+
+// Getter and setter 
+class Book { 
+    constructor(author){
+        this._author = author;
+    }
+    get writer(){
+        return this._author;
+    }
+    set writer(updatedAuthor){
+        this._author = updatedAuthor;
+    }
+}
+function makeClass(){
+    class Thermostat{
+        constructor(temp){
+            this._temp
+        }
+    }
+}
