@@ -1,4 +1,13 @@
 # Coding
+### Front/Back-end languages 
+* OG
+    * HTML , CSS : Makeup(make it look good) 
+    * JavaScript: Backend 
+
+* Present 
+    * HTML5, CSS3 , Tailwind : Makeup 
+    * ReactJS, Typescript: Backend (animation) 
+    * ExpressJS, NodeJS: Backend (whole website collaborates with SQL, etc ){BusinessLogic platform}
 
 ### Set up React project 
 ```bash
