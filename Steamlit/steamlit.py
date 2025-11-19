@@ -87,6 +87,7 @@ if st.session_state.page == "results":
         sentences = st.session_state.analysis_sentences
         predictions = st.session_state.analysis_predictions
 
+
         feedback_data = []
         total = len(sentences)
         show = sum(1 for p in predictions if p == 0)

@@ -1,6 +1,8 @@
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
+
+
 def test ():
     return 2
 
@@ -265,3 +267,4 @@ def get_highlights_with_embeddings(sentence: str, stage_type: int,
         'stage': type_name,
         'highlights': highlights
     }
+
