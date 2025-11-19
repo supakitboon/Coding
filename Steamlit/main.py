@@ -7,9 +7,12 @@ import utils.func
 st.write("Hello")
 # Input
 # x = st.text_input("Fav Movie?")
-x = utils.func.test()
+x = st.text_input("Your story")
 st.write(f"Your fav movie is {x}")
 model = utils.func.load_embedding_model()
+y = utils.func.get_highlights_with_embeddings(x,1,model,0.47)
+st.write(f"Here is your result {y}")
+
 
 # show data in graph 
 chart_data = pd.DataFrame(np.random.randn(20,3),columns = ["a","b","c"])
