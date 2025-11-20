@@ -38,8 +38,6 @@ for sentence, pred in zip(sentences, predictions):
 st.write(analysis_results)
 
 
-# Call the API
-api_key = "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"
 
 TYPE_MAP = {0: "Show", 1: "Tell"}
 if st.button("Get AI Explanations"):
