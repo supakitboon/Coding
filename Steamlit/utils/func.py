@@ -1,7 +1,8 @@
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
-
+import requests
+import json
 
 def test ():
     return 2
@@ -132,7 +133,7 @@ TELL_INDICATORS = [
     "very", "extremely", "highly", "significantly", "slightly",
     "somewhat", "moderately", "considerably", "substantially"
 ]
-TYPE_MAP = {1: "Show", 2: "Tell"}
+TYPE_MAP = {0: "Show", 1: "Tell"}
 # RACE-RELATED TERMS TO EXCLUDE
 RACE_TERMS = {
     'white', 'black', 'asian', 'hispanic', 'latino', 'latina', 'latinx',
@@ -268,3 +269,38 @@ def get_highlights_with_embeddings(sentence: str, stage_type: int,
         'highlights': highlights
     }
 
+def call_openrouter_llm(prompt: str, api_key: str, model: str = "openai/gpt-4o-mini") -> str:
+    """
+    Call OpenRouter API with a prompt.
+    
+    Args:
+        prompt: Your prompt text
+        api_key: OpenRouter API key
+        model: Model to use (default: "openai/gpt-4o-mini")
+    
+    Returns:
+        The LLM's response as a string
+    
+    Example:
+        response = call_openrouter_llm("Explain AI", "your-api-key")
+        print(response)
+    """
+    response = requests.post(
+        url="https://openrouter.ai/api/v1/chat/completions",
+        headers={
+            "Authorization": f"Bearer {api_key}",
+        },
+        json={
+            "model": model,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        }
+    )
+    
+    response.raise_for_status()
+    data = response.json()
+    return data["choices"][0]["message"]["content"]

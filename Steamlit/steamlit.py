@@ -168,9 +168,9 @@ if st.session_state.page == "results":
             # Visual Simulation of saving
             with st.spinner("Saving to database and sending email..."):
                 import time
-                time.sleep(1.5) # Fake loading time
+                time.sleep(1.5) 
             
-            st.success("✅ Feedback submitted and email sent! (UI Simulation Only)")
+            st.success("Feedback submitted and email sent! (UI Simulation Only)")
             st.balloons()
 
         if st.button("Restart"):

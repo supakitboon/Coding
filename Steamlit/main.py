@@ -18,7 +18,7 @@ sentences = ["White people take up the majority of all jobs, showing discriminat
 "Whites in every category make up the majority of the workforce in STEM occupations.",
 "Although Hispanics make up the second-most majority of the workforce overall, they have very little representation in the STEM field."
 ]
-predictions = [2,1,2]
+predictions = [1,0,1]
 analysis_results = []
 model= utils.func.load_embedding_model()
     
@@ -36,3 +36,34 @@ for sentence, pred in zip(sentences, predictions):
     })
 
 st.write(analysis_results)
+
+
+# Call the API
+api_key = "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"
+
+TYPE_MAP = {0: "Show", 1: "Tell"}
+if st.button("Get AI Explanations"):
+    with st.spinner("Getting explanations..."):
+        for i, result in enumerate(analysis_results):
+            sentence = result['sentence']
+            type_name = result['type']
+            highlights = result['highlights']
+            # Create prompt for this sentence
+            prompt = f"""
+            
+            You are an expert in data/story telling.
+            Definitions:
+            - "Show" statements are DESCRIPTIVE - they describe what is visible in the data/chart
+            - "Tell" statements are INTERPRETIVE - they make claims, interpretations, or conclusions beyond what's directly visible
+            Explain in 2-3 sentences why this sentence is classified as "{type_name}":      
+            Sentence: "{sentence}". 
+            """
+            
+            # Call OpenRouter API
+            response = utils.func.call_openrouter_llm(prompt, api_key)
+            # Display results
+            st.write(f"**Sentence {i+1}:** {sentence}")
+            st.info(f"**Classification:** {type_name}")
+            st.info(f"**Highlight words:** {highlights}")
+            st.success(f"**Explanation:** {response}")
+            st.write("---")
