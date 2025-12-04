@@ -37,8 +37,6 @@ for sentence, pred in zip(sentences, predictions):
 
 st.write(analysis_results)
 
-
-
 TYPE_MAP = {0: "Show", 1: "Tell"}
 if st.button("Get AI Explanations"):
     with st.spinner("Getting explanations..."):
