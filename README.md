@@ -37,3 +37,10 @@ import 'bootstrap/dist/css/bootstrap.css'
     * getbootstrap.com 
 
 
+
+## What I did ?  
+```
+npm create nuxt@latest
+#NuxtTest 
+
+```
